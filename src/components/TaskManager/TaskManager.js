@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './TaskManager.css';
 
 function TaskManager({ selectedDate }) {
   const [tasks, setTasks] = useState([]);
@@ -26,10 +27,17 @@ function TaskManager({ selectedDate }) {
     setTasks(tasks.filter(task => task !== taskToDelete));
   };
 
+  const formattedDate = selectedDate.toLocaleDateString('ru-RU', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+  });
+
   return (
     <div className='task-manager'>
-      <h2>Задачи на {selectedDate.toDateString()}</h2>
+      <h2>{formattedDate}</h2>
       <input
+        id='task-input'
         type='text'
         value={taskInput}
         onChange={(e) => setTaskInput(e.target.value)}
