@@ -32,10 +32,11 @@ function TaskManager({ selectedDate }) {
     day: 'numeric',
     month: 'long',
   });
+  const capitalizedDate = formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 
   return (
     <div className='task-manager'>
-      <h2>{formattedDate}</h2>
+      <h2>{capitalizedDate}</h2>
       <input
         id='task-input'
         type='text'
@@ -48,7 +49,7 @@ function TaskManager({ selectedDate }) {
         {tasks.map((task, index) => (
           <li key={index}>
             {task}
-            <button onClick={() => deleteTask(task)}>Удалить</button>
+            <button className='delete-button' onClick={() => deleteTask(task)}>Удалить</button>
           </li>
         ))}
       </ul>

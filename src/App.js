@@ -8,9 +8,9 @@ function App() {
 
   return (
     <div className='app'>
-      <div className='container' >
-        <CalendarComponent date={date} setDate={setDate} />
+      <div className='container'>
         <TaskManager selectedDate={date} />
+        <CalendarComponent date={date} setDate={setDate} />
       </div>
     </div>
   );

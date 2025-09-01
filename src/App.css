@@ -1,14 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
 body, .app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 0;
-  background-color: rgb(179, 0, 0);
+  background-color: rgb(232, 1, 1);
+}
+
+.react-calendar, .react-calendar__tile, .react-calendar__navigation__arrow, .react-calendar__navigation__label, button, input, li {
+    font-family: "Unbounded", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
 }
 
 .container {
   overflow: hidden;
   display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-  align-items: center;
-  border-radius: 15px;
+  flex-direction: row;
+  border-radius: 25px;
 }
