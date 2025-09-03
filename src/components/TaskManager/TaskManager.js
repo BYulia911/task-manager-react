@@ -36,7 +36,7 @@ function TaskManager({ selectedDate }) {
 
   return (
     <div className='task-manager'>
-      <h2>{capitalizedDate}</h2>
+      <h2 className='date'>{capitalizedDate}</h2>
       <input
         id='task-input'
         type='text'
@@ -47,8 +47,8 @@ function TaskManager({ selectedDate }) {
       <button onClick={addTask}>Добавить задачу</button>
       <ul>
         {tasks.map((task, index) => (
-          <li key={index}>
-            {task}
+          <li key={index} className='task-item'>
+            <span className='task-text'>{task}</span>
             <button className='delete-button' onClick={() => deleteTask(task)}>Удалить</button>
           </li>
         ))}

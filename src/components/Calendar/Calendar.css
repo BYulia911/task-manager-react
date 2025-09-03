@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@200..900&display=swap');
+
+.react-calendar, .react-calendar__tile, .react-calendar__navigation__arrow, .react-calendar__navigation__label, button, input, li {
+    font-family: "Unbounded", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+}
+
 .react-calendar {
   width: 600px;
-  height: 400px;
   background: white;
   line-height: 1.125em;
   padding: 10px;
