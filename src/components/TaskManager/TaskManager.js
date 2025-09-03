@@ -39,12 +39,13 @@ function TaskManager({ selectedDate }) {
       <h2 className='date'>{capitalizedDate}</h2>
       <input
         id='task-input'
+        className='task-input'
         type='text'
         value={taskInput}
         onChange={(e) => setTaskInput(e.target.value)}
         placeholder='Добавить новую задачу'
       />
-      <button onClick={addTask}>Добавить задачу</button>
+      <button className='add-button' onClick={addTask}>Добавить задачу</button>
       <ul>
         {tasks.map((task, index) => (
           <li key={index} className='task-item'>
