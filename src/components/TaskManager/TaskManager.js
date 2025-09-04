@@ -18,13 +18,20 @@ function TaskManager({ selectedDate }) {
 
   const addTask = () => {
     if (taskInput.trim()) {
-      setTasks([...tasks, taskInput]);
+      const newTask = { text: taskInput, completed: false };
+      setTasks([...tasks, newTask]);
       setTaskInput('');
     }
   };
 
   const deleteTask = (taskToDelete) => {
-    setTasks(tasks.filter(task => task !== taskToDelete));
+    setTasks(tasks.filter(task => task.text !== taskToDelete.text));
+  };
+
+  const toggleTaskCompletion = (taskToToggle) => {
+    setTasks(tasks.map(task => 
+      task.text === taskToToggle.text ? { ...task, completed: !task.completed } : task
+    ));
   };
 
   const formattedDate = selectedDate.toLocaleDateString('ru-RU', {
@@ -49,7 +56,16 @@ function TaskManager({ selectedDate }) {
       <ul>
         {tasks.map((task, index) => (
           <li key={index} className='task-item'>
-            <span className='task-text'>{task}</span>
+            <input
+              id='task-completed'
+              className='task-completed'
+              type='checkbox'
+              checked={task.completed}
+              onChange={() => toggleTaskCompletion(task)}
+            />
+            <span className={`task-text ${task.completed ? 'completed' : ''}`}>
+              {task.text}
+            </span>
             <button className='delete-button' onClick={() => deleteTask(task)}>Удалить</button>
           </li>
         ))}
