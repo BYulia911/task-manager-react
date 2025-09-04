@@ -24,8 +24,8 @@ function TaskManager({ selectedDate }) {
     }
   };
 
-  const deleteTask = (taskToDelete) => {
-    setTasks(tasks.filter(task => task.text !== taskToDelete.text));
+  const deleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
   };
 
   const toggleTaskCompletion = (taskToToggle) => {
@@ -66,7 +66,7 @@ function TaskManager({ selectedDate }) {
             <span className={`task-text ${task.completed ? 'completed' : ''}`}>
               {task.text}
             </span>
-            <button className='delete-button' onClick={() => deleteTask(task)}>Удалить</button>
+            <button className='delete-button' onClick={() => deleteTask(index)}>Удалить</button>
           </li>
         ))}
       </ul>
